@@ -5,12 +5,12 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL static)
 endif()
 
 include(vcpkg_common_functions)
-set(ATK_VERSION 2.24.0)
+set(ATK_VERSION 2.26.1)
 set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/atk-${ATK_VERSION})
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://ftp.gnome.org/pub/GNOME/sources/atk/2.24/atk-${ATK_VERSION}.tar.xz"
+    URLS "http://ftp.gnome.org/pub/GNOME/sources/atk/2.26/atk-${ATK_VERSION}.tar.xz"
     FILENAME "atk-${ATK_VERSION}.tar.xz"
-    SHA512 3ae0a4d5f28d5619d465135c685161f690732053bcb70a47669c951fbf389b5d2ccc5c7c73d4ee8c5a3b2df14e2f5b082e812a215f10a79b27b412d077f5e962)
+    SHA512 9a802f1856f0f608c3b4ef6de27dc8174e103dbb32431a4dcffcac48c685cc48efb087ab73f661d7327341e8074b73bb7877c596f93228283ca5907910d64a6b)
 
 vcpkg_extract_source_archive(${ARCHIVE})
 vcpkg_apply_patches(SOURCE_PATH ${SOURCE_PATH}/atk

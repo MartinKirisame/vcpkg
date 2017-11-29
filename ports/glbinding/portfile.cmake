@@ -10,8 +10,8 @@ include(vcpkg_common_functions)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO cginternals/glbinding
-    REF v2.1.1
-    SHA512 6c7251555801272a90c87a9386324eb6993102601a036fc7d9f9b4ebed64c74d011909566e5fc5a34ef8242e24915848296023daa1420c91aaf08cf9635be397
+    REF v2.1.3
+    SHA512 2cb063ba905c72ea36583122bf2a263eac2ac17572f4bd16b43c406271bcb2e3e7af51e60e4458232f731b780488807a37da39849dd24b7553766a14677dbf1d
     HEAD_REF master
 )
 vcpkg_configure_cmake(

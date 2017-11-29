@@ -7,8 +7,8 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO apache/arrow
-    REF apache-arrow-0.6.0
-    SHA512  c0e89b959dfe75e895a3427edd4eee663be5ee542e9ea13f7311d0775fe7a00188eafa07ba524e3d3c0a71fc8e11213f10fe4ebfdf451754816062249ffa7f3d
+    REF apache-arrow-0.7.1
+    SHA512 8c5614c53ee3bdff579d938dca06ff2e2f9afeba0466de3a7469bfa95d06f0c2e42a80c1908e5c73a9b711057a433a882135fc392a409aa7cf101cb68d621cb8
     HEAD_REF master
 )
 

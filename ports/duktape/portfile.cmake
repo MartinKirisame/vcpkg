@@ -1,12 +1,12 @@
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/duktape-2.0.3)
-set(CMAKE_PATH ${CMAKE_CURRENT_LIST_DIR})
-vcpkg_download_distfile(ARCHIVE_FILE
-    URLS "https://github.com/svaarala/duktape/releases/download/v2.0.3/duktape-2.0.3.tar.xz"
-    FILENAME "duktape-2.0.3.tar.xz"
-    SHA512 ba21731242d953d82c677e1205e3596e270e6d57156a0bca8068fc3b6a35996af69bcfac979b871a7e3eab31f28a06cb99078f0b3eaac54be9c5899f57f4100e
+
+vcpkg_from_github(
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO svaarala/duktape
+    REF v2.2.0
+    SHA512 ade1f71bb8bb2daaabf0bc2d03a836ee4806603883bf831bb9281b526666a45f0e48887889a435e681968aaee69a02cfa09a525beb1ac30e02d96d1353f561e7
+    HEAD_REF master
 )
-vcpkg_extract_source_archive(${ARCHIVE_FILE})
 
 vcpkg_apply_patches(
     SOURCE_PATH ${SOURCE_PATH}
@@ -14,7 +14,7 @@ vcpkg_apply_patches(
 )
 
 vcpkg_configure_cmake(
-    SOURCE_PATH ${CMAKE_PATH}
+    SOURCE_PATH ${CMAKE_CURRENT_LIST_DIR}
     OPTIONS -DSOURCE_PATH=${SOURCE_PATH}
 )
 

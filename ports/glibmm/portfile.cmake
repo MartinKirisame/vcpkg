@@ -11,11 +11,11 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL static)
 endif()
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/glibmm-2.52.1)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/glibmm-2.55.1)
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.52/glibmm-2.52.1.tar.xz"
-    FILENAME "glibmm-2.52.1.tar.xz"
-    SHA512 702158762cb28972b315ab98dc00a62e532bda08b6e76dc2a2556e8cb381c2021290891887a4af2fbff5a62bab4d50581be73037dc8e0dc47d5febd6cbeb7bda
+    URLS "http://ftp.gnome.org/pub/GNOME/sources/glibmm/2.55/glibmm-2.55.1.tar.xz"
+    FILENAME "glibmm-2.55.1.tar.xz"
+    SHA512 44f5faa43e2a260166c65ed39b84bc6e0c6190ecfc4444557f30136fe3556b9fbe45be58392a262e5aea31040f4572a63a24a035e4eb840e749a68f2702f960e
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 

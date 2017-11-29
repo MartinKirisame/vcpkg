@@ -7,13 +7,14 @@
 #
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/globjects-1.0.0)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://github.com/cginternals/globjects/archive/v1.0.0.zip"
-    FILENAME "globjects-1.0.0.zip"
-    SHA512 e03ae16786b11891a61f0e2f85b0d98a858d1bad3cf4c45944982d6a753dbaa8b28975dc02153360a5ac0f3be73fe86c91af130cfc0dda7459dd782f16868eeb
+
+vcpkg_from_github(
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO cginternals/globjects
+    REF v1.1.0
+    SHA512 47c6dfca635dc1f2b7bf052b7169edb1f643a9967521327a4a6ac78ef19017265fc52585fdf6841cf6383042c867a58e17f5df91ffbaead9aded4068200d08d7
+    HEAD_REF master
 )
-vcpkg_extract_source_archive(${ARCHIVE})
 
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}

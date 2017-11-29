@@ -4,12 +4,13 @@ endif()
 
 include(vcpkg_common_functions)
 
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/db-4.8.30.NC)
+set(VERSION 6.1.36)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/db-${VERSION}.NC)
 
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://download.oracle.com/berkeley-db/db-4.8.30.NC.zip"
-    FILENAME "db-4.8.30.NC.zip"
-    SHA512 59c1d2d5a3551f988ab1dc063900572b67ad087537e0d71760de34601f9ebd4d5c070a49b809bec4a599a62417e9a162683ce0f6442deb1a0dadb80764bf6eab
+    URLS "http://download.oracle.com/berkeley-db/db-${VERSION}.NC.zip"
+    FILENAME "db-${VERSION}.NC.zip"
+    SHA512 288365a7fd13a083ecbda058c79d97141668f2cc1223658d0a5b4bd5e10969797b3c3072260906bae7692ed732ab94390a923379a30c8b9cb01ec8f391295a98
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 

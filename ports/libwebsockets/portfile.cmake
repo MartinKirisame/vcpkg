@@ -3,8 +3,8 @@ include(vcpkg_common_functions)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO warmcat/libwebsockets
-    REF v2.0.0
-    SHA512 26bc09877c1595b80b08e788e4ae3908af86b67e19f4b9f7ac48d90783cf5c563d4d03e5586d18f6bb8e67d15a03d000f31f67f3a327d898844f77e5d22f7c9d
+    REF v2.4.1
+    SHA512 a5f6a3388517d6f46183dfd1e625475ac1d4d509690e431a581d6ca927078fa50ac9a0787b4305fe088c694af1809335020bfc083a4d4d98585143f13ff61c75
     HEAD_REF master
 )
 

@@ -1,12 +1,14 @@
 #header-only library
 include(vcpkg_common_functions)
-SET(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/asio-asio-1-10-8/asio/)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://github.com/chriskohlhoff/asio/archive/asio-1-10-8.zip"
-    FILENAME "asio-1-10-8.zip"
-    SHA512 bc9794a20fc7844a2a9d22bfa418005f61defbcecdd612daba0d317e6f8fc5a61d3a3b2d7d557b92584294b8adfccc3c47a8f0441f3e34a47a0f715ca1ba0e5b
+
+
+vcpkg_from_github(
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO chriskohlhoff/asio
+    REF asio-1-11-0
+    SHA512 ab4a811ec9e4dbb3b64d22b645d33c36b7b3143144b98bccf32e6375137dabeb18a5dc5eff017aef80286633e7b9916bd3074bc3ed71c22be0d915797366ccde
+    HEAD_REF master
 )
-vcpkg_extract_source_archive(${ARCHIVE})
 
 # Handle copyright
 file(COPY ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/asio)

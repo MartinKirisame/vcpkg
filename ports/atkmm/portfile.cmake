@@ -5,11 +5,11 @@ if (VCPKG_LIBRARY_LINKAGE STREQUAL static)
 endif()
 
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/atkmm-2.24.2)
+set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/atkmm-2.25.4)
 vcpkg_download_distfile(ARCHIVE
-    URLS "http://ftp.gnome.org/pub/GNOME/sources/atkmm/2.24/atkmm-2.24.2.tar.xz"
-    FILENAME "atkmm-2.24.2.tar.xz"
-    SHA512 427714cdf3b10e3f9bc36df09c4b05608d295f5895fb1e079b9bd84afdf7bf1cfdec6794ced7f1e35bd430b76f87792df4ee63c515071a2ea6e3e51e672cdbe2
+    URLS "http://ftp.gnome.org/pub/GNOME/sources/atkmm/2.25/atkmm-2.25.4.tar.xz"
+    FILENAME "atkmm-2.25.4.tar.xz"
+    SHA512 6a9c23861fd482c641190172323a7ddf510c4d8c8c8e9d56a658f5a5a0d09565e2c5285daef988450e50663c15aa4814cb9c93d13057b58134299b30ba3891ce
 )
 vcpkg_extract_source_archive(${ARCHIVE})
 
