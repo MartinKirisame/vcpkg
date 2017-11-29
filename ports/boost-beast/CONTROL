@@ -1,0 +1,4 @@
+Source: boost-beast
+Version: 130-caf144388778ecb59ff011d10c2afc38b62e5b1a
+Build-Depends: openssl, boost
+Description: a C++ header-only library serving as a foundation for writing interoperable networking libraries by providing low-level HTTP/1, WebSocket, and networking protocol vocabulary types and algorithms using the consistent asynchronous model of Boost.Asio.

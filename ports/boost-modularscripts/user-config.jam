@@ -1,0 +1,44 @@
+using msvc : 14.1 : cl.exe :
+<setup>@NOTHING_BAT@
+;
+
+using msvc : 14.0 : cl.exe :
+<setup>@NOTHING_BAT@
+;
+
+if "@PORT@" = "boost-python"
+{
+    using python : @PYTHON_VERSION@ : : @PYTHON_INCLUDE_PATH@ : @PYTHONLIBS_RELEASE@ ;
+    using python : @PYTHON_VERSION@ : : @PYTHON_INCLUDE_PATH@ : @PYTHONLIBS_DEBUG@ : <python-debugging>on ;
+}
+
+project user-config :
+    requirements <include>@CURRENT_INSTALLED_DIR@/include
+;
+
+lib advapi32 ;
+lib icuuc : : <search>@CURRENT_INSTALLED_DIR@/lib : :
+              <runtime-link>shared
+              <library>advapi32 ;
+              
+lib icuuc : : <search>@CURRENT_INSTALLED_DIR@/debug/lib
+              <variant>debug
+              <name>icuucd : :
+              <runtime-link>shared
+              <library>advapi32 ;
+              
+lib icuin : : <search>@CURRENT_INSTALLED_DIR@/lib : :
+              <runtime-link>shared ;
+                            
+lib icuin : : <search>@CURRENT_INSTALLED_DIR@/debug/lib
+              <variant>debug
+              <name>icuind : :
+              <runtime-link>shared ;
+                             
+lib icudt : : <search>@CURRENT_INSTALLED_DIR@/lib : : 
+              <runtime-link>shared ;
+              
+lib icudt : : <search>@CURRENT_INSTALLED_DIR@/debug/lib
+              <variant>debug
+              <name>icudtd : : 
+              <runtime-link>shared ;

@@ -23,12 +23,12 @@ namespace vcpkg::Graphs
     struct AdjacencyProvider
     {
         virtual std::vector<V> adjacency_list(const U& vertex) const = 0;
-
+        virtual std::string to_string(const V& vertex) const = 0;
         virtual U load_vertex_data(const V& vertex) const = 0;
     };
 
     template<class V, class U>
-    static void topological_sort_internal(const V& vertex,
+    void topological_sort_internal(const V& vertex,
                                           const AdjacencyProvider<V, U>& f,
                                           std::unordered_map<V, ExplorationStatus>& exploration_status,
                                           std::vector<U>& sorted)
@@ -37,7 +37,18 @@ namespace vcpkg::Graphs
         switch (status)
         {
             case ExplorationStatus::FULLY_EXPLORED: return;
-            case ExplorationStatus::PARTIALLY_EXPLORED: Checks::exit_with_message(VCPKG_LINE_INFO, "cycle in graph");
+            case ExplorationStatus::PARTIALLY_EXPLORED:
+            {
+                System::println("Cycle detected within graph:");
+                for (auto&& node : exploration_status)
+                {
+                    if (node.second == ExplorationStatus::PARTIALLY_EXPLORED)
+                    {
+                        System::println("    %s", f.to_string(node.first));
+                    }
+                }
+                Checks::exit_fail(VCPKG_LINE_INFO);
+            }
             case ExplorationStatus::NOT_EXPLORED:
             {
                 status = ExplorationStatus::PARTIALLY_EXPLORED;
@@ -81,6 +92,11 @@ namespace vcpkg::Graphs
         }
 
         V load_vertex_data(const V& vertex) const override { return vertex; }
+
+        std::string to_string(const V& spec) const override
+        {
+            return spec->spec.to_string();
+        }
     };
 
     template<class V>

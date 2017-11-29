@@ -337,6 +337,11 @@ namespace vcpkg::Dependencies
                     {nullopt, nullopt, *port_file_provider.get_control_file(spec.name()).core_paragraph},
                     request_type};
             }
+
+            std::string to_string(const PackageSpec& spec) const override
+            {
+                return spec.to_string();
+            }
         };
 
         const std::unordered_set<PackageSpec> specs_as_set(specs.cbegin(), specs.cend());
@@ -400,6 +405,11 @@ namespace vcpkg::Dependencies
                 }
                 return RemovePlanAction{spec, RemovePlanType::REMOVE, request_type};
             }
+
+            std::string to_string(const PackageSpec& spec) const override
+            {
+                return spec.to_string();
+            }
         };
 
         const std::vector<StatusParagraph*>& installed_ports = get_installed_ports(status_db);
@@ -446,6 +456,11 @@ namespace vcpkg::Dependencies
                     print_error_message(maybe_scf.error());
 
                 Checks::exit_with_message(VCPKG_LINE_INFO, "Could not find package %s", spec);
+            }
+
+            std::string to_string(const PackageSpec& spec) const override
+            {
+                return spec.to_string();
             }
         };
 
